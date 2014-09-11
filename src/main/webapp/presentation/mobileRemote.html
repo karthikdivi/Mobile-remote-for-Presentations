@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+	
+	<script type="text/javascript">
+		
+
+		var websocket = new WebSocket("ws://j1013366win7lt:8080/wsdemo/presentationDesktop");
+		
+		
+		websocket.onopen = function(evt) { onOpen(evt) };
+		websocket.onmessage = function(evt) { onMessage(evt) };
+		websocket.onerror = function(evt) { onError(evt) };
+		
+		function mobileRemote(nextOrPrevious) {
+			  websocket.send(nextOrPrevious); 
+		}
+		
+		
+		function onMessage(evt) {
+			
+			/* if(event.data=="previous"){
+				remotePrevious();
+			}
+			else{
+				remoteNext();	
+			} */
+		}
+		
+		function onOpen() {
+		    //writeToScreen("Connected to " );
+		}
+		
+		function onError(evt){
+			alert(evt+evt.data);
+		}
+		</script>
+	
+	</head>
+	
+	<body>
+	
+	<button type="button" onClick="javascript:mobileRemote('next')">Next</button>
+<button type="button" onClick="javascript:mobileRemote('previous')">Previous</button> 
+
+
+	
+	</body>
+	</html>
